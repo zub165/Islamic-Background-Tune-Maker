@@ -1,0 +1,331 @@
+/* Islamic Ambience Generator Styles */
+
+:root {
+    --primary-color: #217b77;
+    --secondary-color: #e6af4b;
+    --text-color: #333;
+    --bg-color: #f9f7f2;
+    --panel-bg: #fff;
+    --border-color: #ddd;
+    --border-radius: 8px;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.control-panel {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--panel-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.visualization-panel {
+    flex: 1.5;
+    min-width: 400px;
+    background-color: var(--panel-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.visualizer-container {
+    height: 300px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.panel-section {
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-item label {
+    margin-bottom: 0;
+    min-width: 120px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+}
+
+.instrument-volume {
+    flex: 1;
+    min-width: 100px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-container input[type="range"] {
+    flex: 1;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.primary:hover:not(:disabled) {
+    background-color: #186966;
+}
+
+.btn.secondary {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+}
+
+.btn.secondary:hover:not(:disabled) {
+    background-color: #e3e3e3;
+}
+
+.btn.playing {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.audio-controls {
+    margin-top: 20px;
+}
+
+.audio-status {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f5f5f5;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.playback-progress {
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.1s;
+}
+
+.progress-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #777;
+}
+
+.preset-section {
+    margin-top: 20px;
+}
+
+.preset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preset-btn {
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.preset-btn:hover {
+    background-color: #e6e6e6;
+}
+
+.waveform-controls {
+    margin-top: 15px;
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    color: #777;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Helper text styling */
+.helper-text {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Visualization style buttons */
+.vis-style-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.vis-btn {
+    padding: 6px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.vis-btn:hover {
+    background-color: #e6e6e6;
+}
+
+.vis-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .panels {
+        flex-direction: column;
+    }
+    
+    .visualization-panel, .control-panel {
+        min-width: 100%;
+    }
+    
+    .visualizer-container {
+        height: 250px;
+    }
+} 
