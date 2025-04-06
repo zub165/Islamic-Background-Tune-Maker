@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Islamic Ambience Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+
+  <!-- Audio Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/tone@latest/build/Tone.js"></script>
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Islamic Ambience Generator</h1>
+      <p id="status">Click "Generate Music" to begin.</p>
+    </header>
+
+    <div class="panels">
+      <!-- Control Panel -->
+      <div class="control-panel">
+
+        <div class="section">
+          <h3>Melody Settings</h3>
+          <div class="form-group">
+            <label for="duration">Duration:</label>
+            <select id="duration">
+              <option value="1">1 Minute</option>
+              <option value="2">2 Minutes</option>
+              <option value="3" selected>3 Minutes</option>
+              <option value="5">5 Minutes</option>
+  </select>
+          </div>
+
+          <div class="form-group">
+            <label for="scale">Scale (Maqam):</label>
+            <select id="scale">
+              <option value="rast">Rast</option>
+              <option value="hijaz" selected>Hijaz</option>
+              <option value="saba">Saba</option>
+              <option value="nahawand">Nahawand</option>
+              <option value="bayati">Bayati</option>
+  </select>
+  </div>
+
+          <div class="form-group">
+            <label for="tempo">Tempo: <span id="tempo-value">80</span> BPM</label>
+            <input type="range" id="tempo" min="60" max="120" value="80"/>
+  </div>
+</div>
+
+        <div class="section">
+          <h3>Instruments</h3>
+          <!-- Instrument Controls -->
+          <div class="form-group">
+            <input type="checkbox" id="oud" checked />
+            <label for="oud">Oud</label>
+            <input type="range" id="volume-oud" min="0" max="1" step="0.1" value="0.7"/>
+          </div>
+
+          <div class="form-group">
+            <input type="checkbox" id="ney" checked />
+            <label for="ney">Ney</label>
+            <input type="range" id="volume-ney" min="0" max="1" step="0.1" value="0.6"/>
+          </div>
+
+          <div class="form-group">
+            <input type="checkbox" id="qanun" checked />
+            <label for="qanun">Qanun</label>
+            <input type="range" id="volume-qanun" min="0" max="1" step="0.1" value="0.6"/>
+          </div>
+
+          <div class="form-group">
+            <input type="checkbox" id="daf" checked />
+            <label for="daf">Daf</label>
+            <input type="range" id="volume-daf" min="0" max="1" step="0.1" value="0.5"/>
+          </div>
+
+          <div class="form-group">
+            <input type="checkbox" id="ambient" checked />
+            <label for="ambient">Ambient Drone</label>
+            <input type="range" id="volume-ambient" min="0" max="1" step="0.1" value="0.4"/>
+          </div>
+
+          <div class="form-group">
+            <input type="checkbox" id="nature" checked />
+            <label for="nature">Nature Sounds</label>
+            <input type="range" id="volume-nature" min="0" max="1" step="0.1" value="0.3"/>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Effects</h3>
+          <div class="form-group">
+            <label for="reverb">Reverb:</label>
+            <input type="range" id="reverb" min="0" max="1" step="0.1" value="0.3"/>
+          </div>
+
+          <div class="form-group">
+            <label for="delay">Delay:</label>
+            <input type="range" id="delay" min="0" max="1" step="0.1" value="0.2"/>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Master Controls</h3>
+          <div class="form-group">
+            <label for="master-volume">Master Volume:</label>
+            <input type="range" id="master-volume" min="0" max="1" step="0.1" value="0.8"/>
+          </div>
+
+          <button id="generate-button" class="btn primary">Generate Music</button>
+          <button id="export-button" class="btn">Export Music</button>
+          <audio id="audio-player" class="hidden" controls></audio>
+        </div>
+      </div>
+
+      <!-- Visualization Panel -->
+      <div class="visualization-panel">
+        <div class="section">
+          <h3>Realtime Waveform</h3>
+          <div id="waveform-container" style="width: 100%; height: 120px; background: #e9f2ff; border-radius: 6px;"></div>
+        </div>
+
+        <div class="section">
+          <h3>Playback Timeline</h3>
+          <div class="playback-progress">
+            <div class="progress-bar" id="progress-indicator">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="time-display">
+              <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section presets">
+          <h3>Presets</h3>
+          <div class="preset-buttons">
+            <button class="btn preset-button" data-preset="meditation">Meditation</button>
+            <button class="btn preset-button" data-preset="relaxation">Relaxation</button>
+            <button class="btn preset-button" data-preset="uplifting">Uplifting</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="js/scales.js"></script>
+  <script type="module" src="js/samples.js"></script>
+  <script type="module" src="js/visualizer.js"></script>
+  <script type="module" src="js/instruments.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
